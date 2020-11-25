@@ -12,7 +12,7 @@ bucket_name = '***********' # name of the main folder (bucket) in S3
 
     
 def multipart_upload_csv_to_s3(folder_path, filename, dataframe, upload_index):
-    # Set the desired multipart threshold value (5 GB)
+    # set the desired multipart threshold value (5 GB)
     GB = 1024 ** 3
     config = TransferConfig(multipart_threshold = 5 * GB)
     # upload_index should be True if the index should be saved or False if it shouldn't
@@ -32,7 +32,7 @@ def load_csv_from_s3(folder_path, filename, upload_index):
     return df
 
 def multipart_upload_model_to_s3(folder_path, filename, model):  
-    # Set the desired multipart threshold value (5 GB)
+    # set the desired multipart threshold value (5 GB)
     GB = 1024 ** 3
     config = TransferConfig(multipart_threshold = 5 * GB)
     object_key = folder_path + filename
