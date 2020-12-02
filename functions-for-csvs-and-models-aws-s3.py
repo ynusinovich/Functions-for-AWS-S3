@@ -1,6 +1,7 @@
 import pandas as pd
 import pickle
 import boto3
+from boto3.s3.transfer import TransferConfig
 import joblib
 from io import StringIO, BytesIO
 
