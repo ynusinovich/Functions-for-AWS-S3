@@ -29,7 +29,7 @@ def load_csv_from_s3(folder_path, filename, upload_index):
     csv_obj = client.get_object(Bucket = bucket_name, Key = object_key)
     body = csv_obj['Body']
     csv_string = body.read().decode('utf-8')
-    df = pd.read_csv(StringIO(csv_string), index_col = upload_index)
+    df = pd.read_csv(StringIO(csv_string), index_col = upload_index, low_memory = False)
     return df
 
 def multipart_upload_model_to_s3(folder_path, filename, model):  
